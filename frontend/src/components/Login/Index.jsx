@@ -53,7 +53,7 @@ const data={
   };
 
   const doLogin=async(data)=>{
-    await axios.post(`${SERVER_URL}/api/user-login`).then((response)=>{
+    await axios.post(`${SERVER_URL}/api/user-login`,data).then((response)=>{
         console.log(response)
     }).catch((error)=>{
         console.log(error)
