@@ -28,3 +28,22 @@ export const signupSchema = yup.object().shape({
       .matches(/(?=.*[0-9])/, "one number required!"),
     
   });
+
+
+  export const loginSchema = yup.object().shape({
+    
+   
+    email: yup
+      .string()
+      .lowercase()
+      .email("Must be a valid email!")
+  
+      .required("Email is Required!"),
+     
+    password: yup
+      .string()
+     
+      .required("Required!")
+      
+    
+  });
