@@ -54,9 +54,17 @@ const data={
 
   const doLogin=async(data)=>{
     await axios.post(`${SERVER_URL}/api/user-login`,data).then((response)=>{
-        console.log(response)
+        if(response.status===200){
+            navigate('/home')
+        }
     }).catch((error)=>{
+        if(error.response.status===404){
+            toast.error('User doesnot exists on this mail id')
+        }
         console.log(error)
+        if(error.response.status===401){
+            toast.error('Incorrect password')
+        }
     })
   }
 
